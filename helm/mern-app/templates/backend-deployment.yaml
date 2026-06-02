@@ -18,5 +18,5 @@ spec:
           ports:
             - containerPort: {{ .Values.backend.port }}
           env:
-            - name: MONGO_URI
+            - name: ATLAS_URI
               value: "mongodb://mongodb-service:27017/mernapp"
