@@ -4,6 +4,13 @@ frontend:
     tag: "latest"
   replicaCount: 2
   port: 3000
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
 
 backend:
   image:
@@ -11,6 +18,13 @@ backend:
     tag: "latest"
   replicaCount: 2
   port: 5000
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "128Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
 
 mongodb:
   image: mongo
