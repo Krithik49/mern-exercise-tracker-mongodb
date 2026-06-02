@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+        - name: mongodb
+          image: "{{ .Values.mongodb.image }}:{{ .Values.mongodb.tag }}"
+          ports:
+            - containerPort: {{ .Values.mongodb.port }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - port: {{ .Values.mongodb.port }}
+      targetPort: {{ .Values.mongodb.port }}
+  type: ClusterIP

@@ -1,0 +1,18 @@
+frontend:
+  image:
+    repository: mernprojectacr.azurecr.io/mern-frontend
+    tag: "latest"
+  replicaCount: 2
+  port: 3000
+
+backend:
+  image:
+    repository: mernprojectacr.azurecr.io/mern-backend
+    tag: "latest"
+  replicaCount: 2
+  port: 5000
+
+mongodb:
+  image: mongo
+  tag: "6.0"
+  port: 27017
